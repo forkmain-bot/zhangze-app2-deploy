@@ -1,0 +1,27 @@
+service-two:
+  fullnameOverride: service-two
+  image:
+    repository: ghcr.io/forkmain-bot/repo-two
+    tag: main
+  imagePullSecrets:
+  - name: zhangze-app2-docker
+  nocalhost:
+    command:
+      debug:
+      - ""
+      run:
+      - yarn
+      - install
+      - '&&'
+      - yarn
+      - dev
+    configPath: conf/nocalhost.yaml
+    env: null
+    gitURL: https://github.com/forkmain-bot/repo-two.git
+    hotReload: false
+    image: null
+    language: vite
+    persistentVolumeDirs: null
+    remoteDebugPort: 9009
+  service:
+    targetPort: 3000
